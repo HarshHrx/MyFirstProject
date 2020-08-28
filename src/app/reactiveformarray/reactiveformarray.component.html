@@ -1,0 +1,26 @@
+<p>reactiveformarray works!</p>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title">ARRAY</h1>
+    </div>
+    <div class="panel-body">
+        <form action="">
+            <input type="text" class="form-control" (keyup.enter)="addElement(a)" #a>
+            <ul class="list-group">
+                <li class="list-group-item" (click)="removeAt(topic)" *ngFor="let topic of faName.controls">
+                    {{topic.value}}</li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+
+<!-- <form>
+    <input type="text" class="form-control" (keyup.enter)="addEle(ele)" #ele>
+    <ul>
+        <li (click)="removeEle(top)" *ngFor="let top of faName.controls">
+            {{top.value}}
+        </li>
+    </ul>
+</form> -->

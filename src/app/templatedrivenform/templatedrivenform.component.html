@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">REGISTRATION FORM</div>
+            <div class="panel-body">
+            </div>
+            <div [hidden]="!tempFlag">
+                <form #f="ngForm" (ngSubmit)="submit(f)">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" ngModel name="username" class="form-control">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" ngModel name="pass" class="form-control">
+                    </div>
+                    <div>
+                        <label for="avatar">Choose Avatar</label>
+                        <select id="avatar" class="form-control" ngModel name="ava">
+                            <option value="">Choose Your Avatar</option>
+                            <option *ngFor="let av of avatar" [value]="av.avatarname">{{av.avatarname}}</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+            
+                </form>
+            
+            </div>
+            
+            <div [hidden]="tempFlag">
+                <h1>UserName : {{user}} </h1>
+                <h1>Password : {{password}} </h1>
+                <h1>Avatar : {{avatarr}} </h1>
+        
+            </div>
+            </div>
+            <div class="panel-footer">SUPERHERO PORTAL</div>
+        </div>
+    
+</div>
+

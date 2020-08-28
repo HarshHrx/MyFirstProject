@@ -1,0 +1,26 @@
+<h4>DEMO</h4>
+<form [formGroup]="form">
+    <div class="form-group">
+        <label for="userid" >UserID:</label>
+        <input type="text" class="form-control" formControlName="userId" id="userid">
+    </div>
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" formControlName="title" id="title">
+    </div>
+    <div class="form-group">
+        <label for="body">Body:</label>
+        <textarea formControlName="body" id="body" cols="30" rows="10" class="form-control" id="body"></textarea>
+    </div>
+    <button class="btn btn-primary" (click)="createData()">Submit</button>
+    </form>
+    
+    <div>
+        <ul>
+            <li *ngFor="let post of larray"
+            class="list-Group-Item">
+            {{post.title}}
+            </li>
+        </ul>
+    </div>
+    

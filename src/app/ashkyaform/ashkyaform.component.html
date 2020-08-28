@@ -1,0 +1,61 @@
+<p>ashkyaform works!</p>
+<div class="col-md-6">
+    <div class="panel panel-primary ">
+        <div class="panel-heading">
+            <h3>Registration Page</h3>
+        </div>
+    
+        <div class="panel-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="registrForm()">       
+                <div class="alert alert-danger" *ngIf="registrationForm.touched && registrationForm.invalid">Form is Not Valid!!</div>
+
+                <div class="form-group ">
+                    <div *ngIf="registrationForm.errors" class="alert alert-danger">
+                        Username is invalid
+                    </div>
+                    <label for="fullName">Full Name:</label>
+                    <input formControlName="fullName" type="text" class="form-control" id="fullName" placeholder="Enter Full Name" >
+                    <div *ngIf="fullName.pending">Checking Uniqueness...</div>
+                    <div  *ngIf="fullName.touched && fullName.invalid">
+                        <div class="alert alert-danger" *ngIf="fullName.errors.required">Name is Required</div>
+                        <div class="alert alert-danger" *ngIf="fullName.errors.minlength">Minimun {{fullName.errors.minlength.requiredLength}} Characters Required</div>
+                        <div class="alert alert-danger" *ngIf="fullName.errors.cannotContainSpace">FullName Cannot Contain Space</div>
+                        <div class="alert alert-danger" *ngIf="fullName.errors.shouldBeUnique"  >Name already Taken</div>
+                    </div>
+                    </div>
+           
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input formControlName="email" type="email" class="form-control" id="email" placeholder="eg. example@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number:</label>
+                    <input formControlName="mobileNumber" type="text" class="form-control" id="mobileNumber" placeholder="eg. +919422123447">
+                </div>
+
+                <div formGroupName="address">
+                    <div class="form-group">
+                        <label for="inputResidentialAddress">Residential  Address</label>
+                        <input formControlName="inputResidentialAddress" type="text" class="form-control" id="inputResidentialAddress" placeholder="eg. 1234 Main St">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPermanentAddress">Permanent Address</label>
+                        <input formControlName="inputPermanentAddress" type="text" class="form-control" id="inputPermanentAddress" placeholder="eg. 1234 Main St">
+                    </div> 
+                </div>               
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+    
+        </div>
+    
+        <div class="panel-footer">
+            <h3 class="text-center"><small>&copy; HRXOFFICIALS</small></h3>
+        </div>
+    </div>
+    
+</div>
+
+

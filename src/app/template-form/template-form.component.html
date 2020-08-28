@@ -1,0 +1,25 @@
+<h1>TEMPLATE FORM</h1>
+<form #f= "ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group" >
+        <label for="name">Name</label>
+        <input required minlength="3" maxlength="10" pattern="banana" ngModel name="name" #name="ngModel" id="name"
+            type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
+            <div *ngIf="name.errors.required">
+                Name Required
+            </div>
+            <div *ngIf="name.errors.minlength">
+                Min characters {{name.errors.minlength.requiredLength}} Required
+            </div>
+            <div *ngIf="name.errors.pattern">
+                Pattern Doesnt Match
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="commnets">Comment</label>
+        <textarea id="comments" cols="30" rows="10" class="form-control">
+        </textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">SUBMIT</button>
+</form>
